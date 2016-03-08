@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {},
+  "dependencies": {
+    "ev3dev-lang": "^0.9.4",
+    "rx": "^4.1.0"
+  },
   "devDependencies": {
     "babel-core": "^6.6.5",
     "babel-loader": "^6.2.4",
@@ -18,6 +22,8 @@
     "eslint": "^2.3.0",
     "file-loader": "^0.8.5",
     "imports-loader": "^0.6.5",
+    "jquery": "^2.2.1",
+    "mumble-js": "^1.0.1",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.1",
     "resolve-url-loader": "^1.4.3",

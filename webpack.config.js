@@ -8,6 +8,7 @@ module.exports = {
 
   entry: [
     'webpack/hot/dev-server',
+    './src/styles/main.scss',
     './src/index.js'
   ],
 
