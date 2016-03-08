@@ -24,7 +24,9 @@ http.createServer(function(req, res) {
       res.end('error');
     }
   })
-}).listen(3000);
+}).listen(3000, function() {
+    console.log('listening on port 3000');
+});
 
 var motor = new ev3.MediumMotor(ev3.OUTPUT_A);
 motor.stop();
