@@ -5,6 +5,19 @@ const echo = action => {
   jq('#app').html(`Roger roger, ${action}`)
 }
 
+const send = type => {
+  jq.ajax({
+    type: "POST",
+    url: 'http://192.168.2.3:3000/command',
+    data: JSON.stringify({type: type}),
+    dataType: 'json',
+    contentType: 'application/json'
+  }).then(() => {
+    console.log('sent command');
+  });
+}
+console.log(send);
+
 const mumble = new Mumble({
   language: 'en-GB',
   debug: true,
@@ -36,6 +49,7 @@ const mumble = new Mumble({
       command: 'shoot',
       action: () => {
         echo('shoot')
+        send('shoot');
       }
     }
   ],
