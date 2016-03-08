@@ -2,7 +2,7 @@ var ev3 = require('ev3dev-lang');
 var http = require('http');
 var rx = require('rx');
 
-var commandSubject = new Subject();
+var commandSubject = new rx.Subject();
 
 http.createServer(function(req, res) {
   var data = '';
@@ -10,7 +10,7 @@ http.createServer(function(req, res) {
   req.setEncoding('utf-8');
   req.on('data', function(chunk) {
     data = data + chunk;
-  }
+  })
 
   req.on('end', function() {
     try {
@@ -26,7 +26,7 @@ http.createServer(function(req, res) {
   })
 }).listen(3000);
 
-var motor = new MediumMotor('A');
+var motor = new ev3.MediumMotor(ev3.OUTPUT_A);
 motor.stop();
 
 commandSubject.subscribe(function(command) {
