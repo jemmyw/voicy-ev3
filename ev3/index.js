@@ -1,31 +1,25 @@
 var ev3 = require('ev3dev-lang');
+var express = require('express');
+var bodyParser = require('body-parser');
+var cors = require('cors');
 var http = require('http');
 var rx = require('rx');
 
 var commandSubject = new rx.Subject();
 
-http.createServer(function(req, res) {
-  var data = '';
+var app = express();
+var jsonParser = bodyParser.json();
 
-  req.setEncoding('utf-8');
-  req.on('data', function(chunk) {
-    data = data + chunk;
-  })
+app.use(cors());
+app.use(jsonParser);
 
-  req.on('end', function() {
-    try {
-      var command = JSON.parse(data);
-      commandSubject.onNext(command);
+app.get('/command', function(req, res, next) {
+  commandSubject.onNext(req.body);
+  req.json({response: 'ok'});
+});
 
-      res.writeHead(200, {'Content-Type': 'application/json'});
-      res.end(JSON.stringify({response: 'ok'}));
-    } catch(err) {
-      res.writeHead(500);
-      res.end('error');
-    }
-  })
-}).listen(3000, function() {
-    console.log('listening on port 3000');
+http.createServer(app).listen(3000, function() {
+  console.log('listening on port 3000');
 });
 
 var motor = new ev3.MediumMotor(ev3.OUTPUT_A);

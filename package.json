@@ -10,7 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
     "ev3dev-lang": "^0.9.4",
+    "express": "^4.13.4",
     "rx": "^4.1.0"
   },
   "devDependencies": {
