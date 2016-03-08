@@ -26,6 +26,12 @@ http.createServer(function(req, res) {
   })
 }).listen(3000);
 
-commandSubject.subscribe(function(command) {
+var motor = new MediumMotor('A');
+motor.stop();
 
+commandSubject.subscribe(function(command) {
+  if(command.type === 'shoot') {
+    motor.start(50);
+    setTimeout(function() { motor.stop(); }, 2000);
+  }
 });
