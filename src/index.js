@@ -40,7 +40,7 @@ const mumble = new Mumble({
     },
     {
       name: 'forward',
-      command: /^(?:move|go)?\s*forwards?(?: for (\d+) seconds)/,
+      command: /^(?:move|go)?\s*forwards?(?: for (\d+) seconds?)/,
       action: (seconds) => {
         echo('forward')
         const command = {type: 'forward'};
@@ -50,7 +50,7 @@ const mumble = new Mumble({
     },
     {
       name: 'backward',
-      command: /^(?:move|go)?\s*backwards?(?: for (\d+) seconds)/,
+      command: /^(?:move|go)?\s*backwards?(?: for (\d+) seconds?)/,
       action: (seconds) => {
         echo('backward')
         const command = {type: 'backward'};

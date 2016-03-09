@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "dff4e68dd0a0df68e494"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "1298e895b9bdc6cda5ba"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1080,7 +1080,7 @@
 	    }
 	  }, {
 	    name: 'forward',
-	    command: /^(?:move|go)?\s*forwards?(?: for (\d+) seconds)/,
+	    command: /^(?:move|go)?\s*forwards?(?: for (\d+) seconds?)/,
 	    action: function action(seconds) {
 	      echo('forward');
 	      var command = { type: 'forward' };
@@ -1091,7 +1091,7 @@
 	    }
 	  }, {
 	    name: 'backward',
-	    command: /^(?:move|go)?\s*backwards?(?: for (\d+) seconds)/,
+	    command: /^(?:move|go)?\s*backwards?(?: for (\d+) seconds?)/,
 	    action: function action(seconds) {
 	      echo('backward');
 	      var command = { type: 'backward' };
