@@ -6,17 +6,24 @@ const echo = action => {
 }
 
 const send = type => {
+  sendCommand({type: type})
+}
+
+const turn = direction => {
+  sendCommand({type: 'turn', direction: direction})
+}
+
+const sendCommand = command => {
   jq.ajax({
     type: "POST",
     url: 'http://192.168.2.3:3000/command',
-    data: JSON.stringify({type: type}),
+    data: JSON.stringify(command),
     dataType: 'json',
     contentType: 'application/json'
   }).then(() => {
-    console.log('sent command');
+    console.log('sent command', command);
   });
 }
-console.log(send);
 
 const mumble = new Mumble({
   language: 'en-GB',
@@ -28,6 +35,7 @@ const mumble = new Mumble({
       command: /^turn (left|right)/,
       action: (direction) => {
         echo(direction)
+        turn(direction)
       }
     },
     {
@@ -35,6 +43,7 @@ const mumble = new Mumble({
       command: 'forward',
       action: () => {
         echo('forward')
+        send('forward')
       }
     },
     {
@@ -42,6 +51,7 @@ const mumble = new Mumble({
       command: 'backward',
       action: () => {
         echo('backward')
+        send('backward')
       }
     },
     {
