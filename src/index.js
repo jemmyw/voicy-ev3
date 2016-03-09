@@ -27,6 +27,7 @@ const makeMumbleDriver = function(options) {
 
       commands$.subscribe(function(command) {
         if(command === 'start') {
+          mumble.setAutoRestart(false);
           mumble.start();
         } else if(command === 'stop') {
           mumble.stop();

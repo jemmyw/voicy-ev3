@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9546ecf950fbfce976a6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "e1378fdbb7b622ac7894"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1071,6 +1071,7 @@
 	
 	      commands$.subscribe(function (command) {
 	        if (command === 'start') {
+	          mumble.setAutoRestart(false);
 	          mumble.start();
 	        } else if (command === 'stop') {
 	          mumble.stop();
