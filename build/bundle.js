@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "d28c522e5a3e3675d819"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7f54fb062d0399751cd6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1070,8 +1070,8 @@
 	      commands$.subscribe(function (command) {
 	        if (command === 'start') {
 	          console.log(mumble);
-	          mumble.setAutoRestart(false);
-	          mumble.setContinuous(true);
+	          mumble.setAutoRestart(true);
+	          mumble.setContinuous(false);
 	          mumble.start();
 	        } else if (command === 'stop') {
 	          mumble.stop();
