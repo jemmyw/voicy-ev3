@@ -30,8 +30,8 @@ http.createServer(app).listen(3000, function() {
 });
 
 var motor = new ev3.MediumMotor(ev3.OUTPUT_A);
-var leftMotor = new ev3.Motor(ev3.OUTPUT_B);
-var rightMotor = new ev3.Motor(ev3.OUTPUT_C);
+var rightMotor = new ev3.Motor(ev3.OUTPUT_B);
+var leftMotor = new ev3.Motor(ev3.OUTPUT_C);
 var motors = [motor, leftMotor, rightMotor];
 var driveMotors = [leftMotor, rightMotor];
 
