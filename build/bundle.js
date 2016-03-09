@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "972c36dcc71fb7294f3c"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "986728a2ecb7dd7c8b7b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -559,7 +559,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 /******/
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "/public/";
+/******/ 	__webpack_require__.p = "/build/";
 /******/
 /******/ 	// __webpack_hash__
 /******/ 	__webpack_require__.h = function() { return hotCurrentHash; };
@@ -1058,7 +1058,7 @@
 	var sendCommand = function sendCommand(command) {
 	  _jquery2.default.ajax({
 	    type: "POST",
-	    url: 'http://192.168.2.3:3000/command',
+	    url: 'https://jemmyw.tk/command',
 	    data: JSON.stringify(command),
 	    dataType: 'json',
 	    contentType: 'application/json'

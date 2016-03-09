@@ -6,6 +6,7 @@ var path = require('path');
 
 new WebpackDevServer(webpack(config), {
   publicPath: config.output.publicPath,
+  contentBase: 'public',
   hot: true,
   debug: true,
   devtool: 'source-map',

@@ -16,7 +16,7 @@ const turn = direction => {
 const sendCommand = command => {
   jq.ajax({
     type: "POST",
-    url: 'http://192.168.2.3:3000/command',
+    url: 'https://jemmyw.tk/command',
     data: JSON.stringify(command),
     dataType: 'json',
     contentType: 'application/json'

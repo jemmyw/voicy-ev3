@@ -14,6 +14,7 @@
     "cors": "^2.7.1",
     "ev3dev-lang": "^0.9.4",
     "express": "^4.13.4",
+    "node-http-proxy": "^0.2.3",
     "rx": "^4.1.0"
   },
   "devDependencies": {
