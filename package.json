@@ -18,6 +18,9 @@
     "rx": "^4.1.0"
   },
   "devDependencies": {
+    "@cycle/core": "^6.0.3",
+    "@cycle/dom": "^9.1.0",
+    "@cycle/http": "^8.2.2",
     "babel-core": "^6.6.5",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.6.5",
@@ -30,6 +33,7 @@
     "mumble-js": "^1.0.1",
     "node-sass": "^3.4.2",
     "postcss-loader": "^0.8.1",
+    "ramda": "^0.19.1",
     "resolve-url-loader": "^1.4.3",
     "sass-loader": "^3.1.2",
     "style-loader": "^0.13.0",
