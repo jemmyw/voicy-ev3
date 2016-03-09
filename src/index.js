@@ -14,13 +14,13 @@ const makeMumbleDriver = function(options) {
         language: 'en-GB',
         debug: true,
         continuous: false,
-        autoRestart: true,
+        autoRestart: false,
         callbacks: {
           start: function() {
             obs.onNext({event: 'start'});
           },
           end: function() {
-            obs.onNext({event: 'end'})
+            mumble.start();
           }
         }
       });

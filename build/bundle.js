@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "efed3b1755d83c344cc4"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "93fe23e54b16967a0478"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1058,13 +1058,13 @@
 	        language: 'en-GB',
 	        debug: true,
 	        continuous: false,
-	        autoRestart: true,
+	        autoRestart: false,
 	        callbacks: {
 	          start: function start() {
 	            obs.onNext({ event: 'start' });
 	          },
 	          end: function end() {
-	            obs.onNext({ event: 'end' });
+	            mumble.start();
 	          }
 	        }
 	      });
