@@ -40,23 +40,27 @@ const mumble = new Mumble({
     },
     {
       name: 'forward',
-      command: 'forward',
-      action: () => {
+      command: /^(?:move|go)?\s*forwards?(?: for (\d+) seconds)/,
+      action: (seconds) => {
         echo('forward')
-        send('forward')
+        const command = {type: 'forward'};
+        if(seconds) { command.for = Number(seconds); }
+        sendCommand(command);
       }
     },
     {
       name: 'backward',
-      command: 'backward',
-      action: () => {
+      command: /^(?:move|go)?\s*backwards?(?: for (\d+) seconds)/,
+      action: (seconds) => {
         echo('backward')
-        send('backward')
+        const command = {type: 'backward'};
+        if(seconds) { command.for = Number(seconds); }
+        sendCommand(command);
       }
     },
     {
       name: 'shoot',
-      command: 'shoot',
+      command: /shoot|fire/,
       action: () => {
         echo('shoot')
         send('shoot');

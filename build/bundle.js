@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c01b4d1e0c1ccb1ec5ad"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "dff4e68dd0a0df68e494"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1080,21 +1080,29 @@
 	    }
 	  }, {
 	    name: 'forward',
-	    command: 'forward',
-	    action: function action() {
+	    command: /^(?:move|go)?\s*forwards?(?: for (\d+) seconds)/,
+	    action: function action(seconds) {
 	      echo('forward');
-	      send('forward');
+	      var command = { type: 'forward' };
+	      if (seconds) {
+	        command.for = Number(seconds);
+	      }
+	      sendCommand(command);
 	    }
 	  }, {
 	    name: 'backward',
-	    command: 'backward',
-	    action: function action() {
+	    command: /^(?:move|go)?\s*backwards?(?: for (\d+) seconds)/,
+	    action: function action(seconds) {
 	      echo('backward');
-	      send('backward');
+	      var command = { type: 'backward' };
+	      if (seconds) {
+	        command.for = Number(seconds);
+	      }
+	      sendCommand(command);
 	    }
 	  }, {
 	    name: 'shoot',
-	    command: 'shoot',
+	    command: /shoot|fire/,
 	    action: function action() {
 	      echo('shoot');
 	      send('shoot');

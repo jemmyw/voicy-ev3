@@ -43,23 +43,35 @@ function stop() {
 
 var commands = {
   shoot: function() {
-    motor.start(50);
-    setTimeout(function() { motor.stop(); }, 4000);
+    motor.start(-20);
+    setTimeout(function() {
+      motor.stop();
+      motor.start(100);
+      setTimeout(function() { motor.stop(); }, 2000);
+    });
   },
 
   stop: function() {
     stop();
   },
 
-  forward: function() {
-    for(var i = 0; i < driveMotors; ++i) {
+  forward: function(options) {
+    for(var i = 0; i < driveMotors.length; ++i) {
       driveMotors[i].start(100);
+    }
+
+    if(options.for) {
+      setTimeout(stop, options.for * 1000);
     }
   },
 
-  backward: function() {
-    for(var i = 0; i < driveMotors; ++i) {
+  backward: function(options) {
+    for(var i = 0; i < driveMotors.length; ++i) {
       driveMotors[i].start(-100);
+    }
+
+    if(options.for) {
+      setTimeout(stop, options.for * 1000);
     }
   },
 
