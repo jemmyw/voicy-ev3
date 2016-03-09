@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var http = require('http');
 var rx = require('rx');
+var spawn = require('child_process').spawn;
 
 var commandSubject = new rx.Subject();
 
@@ -12,6 +13,10 @@ var jsonParser = bodyParser.json();
 
 app.use(cors());
 app.use(jsonParser);
+
+app.get('/', function(req, res, next) {
+  res.json({response: 'hello'});
+})
 
 app.post('/command', function(req, res, next) {
   var command = req.body;
@@ -25,12 +30,51 @@ http.createServer(app).listen(3000, function() {
 });
 
 var motor = new ev3.MediumMotor(ev3.OUTPUT_A);
-motor.stop();
+var leftMotor = new ev3.Motor(ev3.OUTPUT_B);
+var rightMotor = new ev3.Motor(ev3.OUTPUT_C);
+var motors = [motor, leftMotor, rightMotor];
+var driveMotors = [leftMotor, rightMotor];
+
+function stop() {
+  for(var i = 0; i < motors.length; ++i) {
+    motors[i].stop();
+  }
+}
+
+var commands = {
+  shoot: function() {
+    motor.start(50);
+    setTimeout(function() { motor.stop(); }, 4000);
+  },
+
+  stop: function() {
+    stop();
+  },
+
+  forward: function() {
+    for(var i = 0; i < driveMotors; ++i) {
+      driveMotors[i].start(100);
+    }
+  },
+
+  backward: function() {
+    for(var i = 0; i < driveMotors; ++i) {
+      driveMotors[i].start(-100);
+    }
+  },
+
+  turn: function(options) {
+    var leftSpeed = options.direction === 'left' ? 75 : -75;
+    var rightSpeed = options.direction === 'right' ? 75 : -75;
+
+    leftMotor.start(leftSpeed);
+    rightMotor.start(rightSpeed);
+    setTimeout(stop, 1000);
+  }
+}
 
 commandSubject.subscribe(function(command) {
   console.log(command);
-  if(command.type === 'shoot') {
-    motor.start(50);
-    setTimeout(function() { motor.stop(); }, 2000);
-  }
+  commands[command.type](command);
+  spawn('aplay', ['ev3/roger.wav']);
 });

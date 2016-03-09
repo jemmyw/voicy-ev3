@@ -61,6 +61,14 @@ const mumble = new Mumble({
         echo('shoot')
         send('shoot');
       }
+    },
+    {
+      name: 'stop',
+      command: 'stop',
+      action: () =>{
+        echo('stop');
+        send('stop');
+      }
     }
   ],
 

@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "986728a2ecb7dd7c8b7b"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "c01b4d1e0c1ccb1ec5ad"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1098,6 +1098,13 @@
 	    action: function action() {
 	      echo('shoot');
 	      send('shoot');
+	    }
+	  }, {
+	    name: 'stop',
+	    command: 'stop',
+	    action: function action() {
+	      echo('stop');
+	      send('stop');
 	    }
 	  }],
 	
