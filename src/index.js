@@ -13,6 +13,8 @@ const makeMumbleDriver = function(options) {
       const mumble = new Mumble({
         language: 'en-GB',
         debug: true,
+        continuous: false,
+        autoRestart: true,
         callbacks: {
           start: function() {
             obs.onNext({event: 'start'});

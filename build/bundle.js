@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7f54fb062d0399751cd6"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "efed3b1755d83c344cc4"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1057,6 +1057,8 @@
 	      var mumble = new _mumbleJs2.default({
 	        language: 'en-GB',
 	        debug: true,
+	        continuous: false,
+	        autoRestart: true,
 	        callbacks: {
 	          start: function start() {
 	            obs.onNext({ event: 'start' });
