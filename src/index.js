@@ -62,7 +62,7 @@ const drivers = {
 
 const commands = [
   {
-    name: 'left',
+    name: 'turn',
     command: /^turn (left|right)/,
     action: (direction) => {
       turn(direction)

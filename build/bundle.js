@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "7393d1253a0fa3040cd3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d28c522e5a3e3675d819"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -1101,7 +1101,7 @@
 	};
 	
 	var commands = [{
-	  name: 'left',
+	  name: 'turn',
 	  command: /^turn (left|right)/,
 	  action: function action(direction) {
 	    turn(direction);
